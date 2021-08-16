@@ -38,5 +38,5 @@ export class App extends React.Component {
 
 export default App;
 
-// MApper un array d objet avec les props (clé + valeur)
-//
+// créer un array d objet avec les props (clé + valeur)
+// Utiliser un map
