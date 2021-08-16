@@ -10,7 +10,7 @@ const StyledBox = styled.div`
 
 class Box extends React.Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <StyledBox primary={this.props.primary} className="col-sm-3 col-6">
         <span
