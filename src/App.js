@@ -1,6 +1,5 @@
 import React from "react";
-import Box from "./components/Box.js";
-import "./styles/global.css";
+import Box from "./components/Box";
 
 const tempMin = -20;
 const tempMax = 40;
@@ -15,11 +14,17 @@ export class App extends React.Component {
       <div className="container-fluid">
         <div className="row">
           {/* Water */}
-          <Box icon="local_drink" color="#3A85FF" value="1.5" unit="L" />
+          <Box
+            icon="local_drink"
+            color="#3A85FF"
+            value="1.5"
+            unit="L"
+            primary
+          />
           {/* Steps */}
           <Box icon="directions_walk" color="black" value="3000" unit="steps" />
           {/* Heart */}
-          <Box icon="favorite" color="red" value="120" unit="bpm" />
+          <Box icon="favorite" color="red" value="120" unit="bpm" primary />
           {/* Temperature */}
           <Box icon="wb_sunny" color="yellow" value="-10" unit="°C" />
           <p>Heart : {heartMin}</p>
@@ -32,3 +37,6 @@ export class App extends React.Component {
 }
 
 export default App;
+
+// MApper un array d objet avec les props (clé + valeur)
+//
