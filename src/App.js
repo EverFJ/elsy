@@ -33,13 +33,13 @@ class App extends React.Component {
           {/* <Box icon="wb_sunny" color="yellow" value={-10} unit="°C" /> */}
 
           {/* ALL BOXES IN ONE OPERATION */}
-          {boxes.map((elem) => (
+          {boxes.map((elem, index) => (
             <Box
               icon={elem.icon}
               color={elem.color}
               value={elem.value}
               unit={elem.unit}
-              primary={boxes.indexOf(elem) % 2 ? true : false}
+              primary={index % 2 === 0}
             />
           ))}
 
