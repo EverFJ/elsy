@@ -27,9 +27,3 @@ class Box extends React.Component {
   }
 }
 export default Box;
-
-// export const Box = styled.div`
-//   height: 190px;
-//   padding: 8px;
-//   text-align: center;
-// `;
