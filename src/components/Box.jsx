@@ -45,10 +45,10 @@ class Box extends React.Component {
             min={this.props.min}
             max={this.props.max}
             value={this.props.value}
-            onChange={() => {
-              // console.log("value", value);
+            onChange={(e) => {
+              console.log("e", e);
               console.log("this.props.value", this.props.value);
-              this.props.onChange();
+              this.props.onChange(e);
             }}
           />
         </StyledBox>

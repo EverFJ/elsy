@@ -29,21 +29,21 @@ class App extends React.Component {
       temperature: -10,
       steps: 3000,
     };
+    // this.onHeartChange = this.onHeartChange.bind(this);
   }
-
   onHeartChange = (e) => {
     this.setState({
-      heart: e,
+      heart: e.target.value,
     });
   };
   onTempChange = (e) => {
     this.setState({
-      temperature: e,
+      temperature: e.target.value,
     });
   };
   onStepChange = (e) => {
     this.setState({
-      steps: e,
+      steps: e.target.value,
     });
   };
 
