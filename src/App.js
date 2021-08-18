@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "./components/Box";
-// import "./styles/global.css";
 
 const tempMin = -20;
 const tempMax = 40;
@@ -8,9 +7,6 @@ const heartMin = 80;
 const heartMax = 180;
 const stepsMin = 0;
 const stepsMax = 50000;
-
-// créer un array d objet avec les props (clé + valeur)
-// Utiliser un map pour assigner les props
 
 // const boxes = [
 //   { icon: "local_drink", color: "#3A85FF", value: 1.5, unit: "L" },
@@ -29,7 +25,6 @@ class App extends React.Component {
       temperature: -10,
       steps: 3000,
     };
-    // this.onHeartChange = this.onHeartChange.bind(this);
   }
   onHeartChange = (e) => {
     this.setState({
@@ -46,6 +41,19 @@ class App extends React.Component {
       steps: e.target.value,
     });
   };
+  calculateWater = () => {
+    let waterQuantity = 1.5;
+    if (this.state.temperature > 20) {
+      waterQuantity += (this.state.temperature - 20) * 0.02;
+    }
+    if (this.state.heart > 120) {
+      waterQuantity += (this.state.heart - 120) * 0.0008;
+    }
+    if (this.state.steps > 10000) {
+      waterQuantity += (this.state.steps - 10000) * 0.00002;
+    }
+    return waterQuantity;
+  };
 
   render() {
     return (
@@ -55,7 +63,7 @@ class App extends React.Component {
           <Box
             icon="local_drink"
             color="#3A85FF"
-            value={this.state.water}
+            value={this.calculateWater()}
             unit="L"
             primary
             water
@@ -69,6 +77,7 @@ class App extends React.Component {
             min={stepsMin}
             max={stepsMax}
             onChange={this.onStepChange}
+            steps
           />
           {/* Heart */}
           <Box
