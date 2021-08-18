@@ -29,12 +29,13 @@ class Box extends React.Component {
             name="slider"
             id="slider"
             steps={this.props.steps ? 1000 : null}
+            // {this.props.steps && steps={1000}}
             min={this.props.min}
             max={this.props.max}
             value={this.props.value}
             onChange={(e) => {
               console.log("e", e);
-              this.props.onChange(e);
+              this.props.onChange(e.target.value);
             }}
           />
         )}

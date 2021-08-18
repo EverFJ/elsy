@@ -28,17 +28,17 @@ class App extends React.Component {
   }
   onHeartChange = (e) => {
     this.setState({
-      heart: e.target.value,
+      heart: e,
     });
   };
   onTempChange = (e) => {
     this.setState({
-      temperature: e.target.value,
+      temperature: e,
     });
   };
   onStepChange = (e) => {
     this.setState({
-      steps: e.target.value,
+      steps: e,
     });
   };
   calculateWater = () => {
@@ -52,7 +52,7 @@ class App extends React.Component {
     if (this.state.steps > 10000) {
       waterQuantity += (this.state.steps - 10000) * 0.00002;
     }
-    return waterQuantity;
+    return Math.round(waterQuantity * 1000) / 1000;
   };
 
   render() {
