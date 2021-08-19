@@ -30,16 +30,19 @@ class App extends React.Component {
     this.setState({
       heart: e,
     });
+    this.calculateWater();
   };
   onTempChange = (e) => {
     this.setState({
       temperature: e,
     });
+    this.calculateWater();
   };
   onStepChange = (e) => {
     this.setState({
       steps: e,
     });
+    this.calculateWater();
   };
   calculateWater = () => {
     let waterQuantity = 1.5;
@@ -52,7 +55,7 @@ class App extends React.Component {
     if (this.state.steps > 10000) {
       waterQuantity += (this.state.steps - 10000) * 0.00002;
     }
-    return Math.round(waterQuantity * 1000) / 1000;
+    this.setState({ water: Math.round(waterQuantity * 1000) / 1000 });
   };
 
   render() {
@@ -63,7 +66,7 @@ class App extends React.Component {
           <Box
             icon="local_drink"
             color="#3A85FF"
-            value={this.calculateWater()}
+            value={this.state.water}
             unit="L"
             primary
             water
@@ -111,10 +114,6 @@ class App extends React.Component {
               primary={index % 2 === 0}
             />
           ))} */}
-
-          <p>Heart : {heartMin}</p>
-          <p>Temperature : {tempMin}</p>
-          <p>Steps : {stepsMin}</p>
         </div>
       </div>
     );
